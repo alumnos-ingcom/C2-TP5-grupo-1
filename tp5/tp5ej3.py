@@ -7,12 +7,6 @@
 def tribonacci(numero):
     """Sucesion tribonacci hasta el limite indicado"""
 
-    try:
-        numero = int(numero)
-
-    except ValueError:
-        raise ValueError('Valor invalido')
-
     valor_1 = 1
     valor_2 = 1
     valor_3 = 1
@@ -30,8 +24,9 @@ def prueba():
     """Toda la interacción con el usuario va acá"""
 
     numero = input('Ingrese el termino limite de la sucesion Tribonacci: ')
-    
-    print(tribonacci(numero))
+    numero = tribonacci(numero)
+
+    print(numero)
 
 
 if __name__ == "__main__":

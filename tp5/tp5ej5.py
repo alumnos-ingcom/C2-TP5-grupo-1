@@ -33,8 +33,9 @@ def prueba():
     """Toda la interacción con el usuario va acá"""
 
     texto = input('Ingrese un texto a invertir: ')
+    texto = inversion_textos(texto)
     
-    print(inversion_textos(texto))
+    print(texto)
 
 
 if __name__ == "__main__":

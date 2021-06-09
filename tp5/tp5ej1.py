@@ -10,8 +10,8 @@ def comprobacion_pares(numero):
     try:
         numero = float(numero) / 2
 
-    except:
-        return 'Valor invalido'
+    except ValueError:
+        raise ValueError('Valor invalido')
 
 
     if str(numero).endswith('0') == True:
@@ -26,8 +26,9 @@ def prueba():
     """Toda la interacción con el usuario va acá"""
 
     numero = input('Ingrese un numero a comprobar: ')
-    
-    print(comprobacion_pares(numero))
+    numero = comprobacion_pares(numero)
+
+    print(numero)
 
 
 if __name__ == "__main__":

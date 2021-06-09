@@ -6,12 +6,6 @@
 def numero_perfecto(numero):
     """verificacion de numero perfecto"""
 
-    try:
-        numero = int(numero)
-
-    except ValueError:
-        raise ValueError('Valor invalido')
-
     divisores = []
     suma = 0
 
@@ -32,8 +26,9 @@ def prueba():
     """Toda la interacción con el usuario va acá"""
 
     numero = input('Ingrese un numero para comprobar su perfeccion!: ')
-    
-    print(numero_perfecto(numero))
+    numero = numero_perfecto(numero)
+
+    print(numero)
 
 
 if __name__ == "__main__":

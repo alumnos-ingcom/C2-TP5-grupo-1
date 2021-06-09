@@ -7,12 +7,6 @@
 def fibonacci(numero):
     """Sucesion fibonacci hasta el limite indicado"""
 
-    try:
-        numero = int(numero)
-
-    except ValueError:
-        raise ValueError('Valor invalido')
-
     valor_1 = 0
     valor_2 = 1
 
@@ -27,8 +21,9 @@ def prueba():
     """Toda la interacción con el usuario va acá"""
 
     numero = input('Ingrese el termino limite de la sucesion Fibonacci: ')
-    
-    print(fibonacci(numero))
+    numero = fibonacci(numero)
+
+    print(numero)
 
 
 if __name__ == "__main__":
