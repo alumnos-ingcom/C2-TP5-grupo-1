@@ -3,54 +3,54 @@
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
 
-def codificador(texto, cant_rotacion):
-    """Funcion para codificar por rotacion"""
-    
-    salida = ''
-    cant_rotacion = int(cant_rotacion)
+def factoriales_basicos():
+    '''Funcion para calcular los factoriales basicos del 1 al 9'''
 
-    for letra in texto:
-        letra_unicode = ord(letra)
-        salida += chr(letra_unicode * cant_rotacion)
+    diccionario_factoriales = {}
 
-    return salida
+    for numero in range(0,10):
 
-def decodificador(codigo, cant_rotacion):
-    """Funcion para codificar por rotacion"""
-    
-    salida = ''
-    cant_rotacion = int(cant_rotacion)
+        factor = 1
 
-    for caracter in codigo:
-        letra_unicode = ord(caracter)
-        letra_unicode = letra_unicode / cant_rotacion
-        salida += chr(int(letra_unicode))
+        for n in range(1, numero + 1):
 
-    return salida
+            factor *= n
+
+        diccionario_factoriales[numero] = factor
+
+    return diccionario_factoriales
+
+
+def factoriones():
+    """Funcion para calcular factoriones"""
+
+    factoriones = []
+    diccionario_factores = factoriales_basicos()
+
+
+    for numero in range(1, 1499999):
+
+        cadena = str(numero)
+        suma_factores = 0
+
+        for digito in cadena:
+
+            suma_factores += diccionario_factores[int(digito)]
+        
+        if suma_factores == numero:
+
+            factoriones.append(numero)
+        
+        
+    return factoriones
+
 
 def prueba():
     """Toda la interacción con el usuario va acá"""
 
-    bucle = True
+    lista_factoriones = factoriones()
 
-    while bucle:
-
-        opcion = input("1) Codificar 2) decodificar 3) salir ")
-
-        if opcion == "1":
-            texto = input("Ingrese un texto a codificar ")
-            cant_rotacion = input("Ingrese cuantas veces debe rotar ")
-            texto = codificador(texto, cant_rotacion)
-            print(texto)
-
-        if opcion == "2":          
-            texto = input("Ingrese un texto a decodificar ")
-            cant_rotacion = input("Ingrese la cantidad de rotacion ")
-            texto = decodificador(texto, cant_rotacion)
-            print(texto)
-
-        if opcion == "3":
-            bucle = False
+    print(lista_factoriones)
 
 if __name__ == "__main__":
     prueba()

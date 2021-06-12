@@ -3,15 +3,20 @@
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
 
-def distancia_numerica(n1, n2):
-    """Funcion calcular distancia entre dos numeros"""
+def ingreso_float(numero):
+    """Funcion para convertir a float y o lanzar una excepcion"""
+
     try:
-        n1 = float(n1)
-        n2 = float(n2)
+            return float(numero)
 
     except ValueError:
         raise ValueError("Esos no son numeros!")
 
+def distancia_numerica(n1, n2):
+    """Funcion calcular distancia entre dos numeros"""
+    
+    n1 = ingreso_float(n1)
+    n2 = ingreso_float(n2)
 
     if n1 < 0:
         n1 = n1 * -1

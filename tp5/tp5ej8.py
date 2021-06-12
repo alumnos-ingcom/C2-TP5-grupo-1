@@ -3,54 +3,105 @@
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
 
-def factoriales_basicos():
-    '''Funcion para calcular los factoriales basicos del 1 al 9'''
-
-    diccionario_factoriales = {}
-
-    for numero in range(0,10):
-
-        factor = 1
-
-        for n in range(1, numero + 1):
-
-            factor *= n
-
-        diccionario_factoriales[numero] = factor
-
-    return diccionario_factoriales
+def codificador(texto, cant_rotacion):
+    """Funcion para codificar por rotacion"""
+    
+    texto_unicode = ''
+    cant_rotacion = int(cant_rotacion)
 
 
-def factoriones():
-    """Funcion para calcular factoriones"""
+    for letra in texto:
 
-    factoriones = []
-    diccionario_factores = factoriales_basicos()
+        letra_unicode = ord(letra)
+        letra_codificada = ord(letra)
 
 
-    for numero in range(1, 1499999):
+        for posicion in range(cant_rotacion):
 
-        cadena = str(numero)
-        suma_factores = 0
+            if letra_unicode <= 57:
+                
+                letra_codificada += 1
 
-        for digito in cadena:
+                if letra_codificada > 57:
+                   
+                    letra_codificada = 48
 
-            suma_factores += diccionario_factores[int(digito)]
+            elif letra_unicode <= 122:
+
+                letra_codificada += 1
+
+                if letra_codificada > 122:
+                    
+                    letra_codificada = 97
+
+
         
-        if suma_factores == numero:
+        texto_unicode += str(chr(letra_codificada))
+        
+    return texto_unicode
 
-            factoriones.append(numero)
+
+
+def decodificador(codigo, cant_rotacion):
+    """Funcion para decodificar por rotacion"""
+     
+    texto_decodificado = ''
+    cant_rotacion = int(cant_rotacion)
+
+
+    for digito in codigo:
+
+        letra_unicode = ord(digito)
+        letra_decodificada = ord(digito)
+
+        for posicion in range(cant_rotacion):
+
+            if letra_unicode <= 57:
+                
+                letra_decodificada -= 1
+
+                if letra_decodificada < 48:
+                   
+                    letra_decodificada = 57
+
+            elif letra_unicode <= 122:
+
+                letra_decodificada -= 1
+
+                if letra_decodificada < 97:
+                    
+                    letra_decodificada = 122
+
+
+        texto_decodificado += str(chr(letra_decodificada))
         
-        
-    return factoriones
+    return texto_decodificado
+
 
 
 def prueba():
     """Toda la interacción con el usuario va acá"""
 
-    lista_factoriones = factoriones()
+    bucle = True
 
-    print(lista_factoriones)
+    while bucle:
+
+        opcion = input("1) Codificar 2) decodificar 3) salir ")
+
+        if opcion == "1":
+            texto = input("Ingrese un texto a codificar ")
+            cant_rotacion = input("Ingrese cuantas veces debe rotar ")
+            texto = codificador(texto, cant_rotacion)
+            print(texto)
+
+        if opcion == "2":          
+            texto = input("Ingrese un texto a decodificar ")
+            cant_rotacion = input("Ingrese la cantidad de rotacion ")
+            texto = decodificador(texto, cant_rotacion)
+            print(texto)
+
+        if opcion == "3":
+            bucle = False
 
 if __name__ == "__main__":
     prueba()
