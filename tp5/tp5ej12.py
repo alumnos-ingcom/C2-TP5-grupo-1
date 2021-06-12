@@ -28,14 +28,12 @@ def comparador_listas(primer_lista, segunda_lista):
 
         return False
 
+def ingreso_valor(n_lista):
+    '''Funcion para crear una lista con los ingresos del usuario'''
+    
+    lista = []
 
-def prueba():
-    """Toda la interacción con el usuario va acá"""
-
-    primer_lista = []
-    segunda_lista = []
-
-    for n_lista in range(1, 3):
+    for indice in range(0, 2):
 
         bucle = True
 
@@ -43,17 +41,19 @@ def prueba():
 
             valor = input(f'Ingrese un valor a la lista {n_lista}: ')
             
-            if n_lista == 1:
-                primer_lista.append(valor)
-
-            if n_lista == 2:
-                segunda_lista.append(valor)
+            lista.append(valor)
 
             opcion = input('ingresar otro valor? s/n: ')
                 
             if opcion == 'n':
                 
-                bucle = False
+                return lista
+
+def prueba():
+    """Toda la interacción con el usuario va acá"""
+
+    primer_lista = ingreso_valor('1')
+    segunda_lista = ingreso_valor('2')
     
     print(comparador_listas(primer_lista, segunda_lista))
             

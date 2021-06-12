@@ -28,26 +28,32 @@ def promedio_movil(lista_original, cant_promedio):
         
     return lista_promediada
 
-def prueba():
-    """Toda la interacción con el usuario va acá"""
 
+def ingreso_enteros():
+    '''Funcion para crear una lista con los ingresos del usuario'''
+    
     bucle = True
-    lista_original = []
-    cant_promedio = 0
+    lista = []
 
     while bucle:
 
         valor = input('Ingrese un valor entero para la lista: ')
-        lista_original.append(valor)
+        lista.append(valor)
 
         opcion = input('ingresar otro valor? s/n: ')
             
         if opcion == 'n':
-            
-            cant_promedio = input('Ingrese un valor para promediar: ')
-            bucle = False
+                   
+            return lista
     
+def prueba():
+    """Toda la interacción con el usuario va acá"""
+
+    lista_original = ingreso_enteros()
+    cant_promedio = input('Ingrese un valor para promediar: ')
+
     lista_movil = promedio_movil(lista_original, cant_promedio)
+
     print('Lista original: ', lista_original)
     print(f'Lista Promediada({cant_promedio}): ', lista_movil)
             

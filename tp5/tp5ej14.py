@@ -20,9 +20,10 @@ def comprobador_capicua(numero):
 def prueba():
     """Toda la interacción con el usuario va acá"""
 
-    valor = input('Ingrese un numero para comprobar si es capicua: ')
+    valor = input('Ingrese un numero para comprobar si es capicua: ') 
+    valor = comprobador_capicua(valor)
     
-    print(comprobador_capicua(valor))
+    print(valor)
 
 
 
