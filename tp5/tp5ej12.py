@@ -55,7 +55,9 @@ def prueba():
     primer_lista = ingreso_valor('1')
     segunda_lista = ingreso_valor('2')
     
-    print(comparador_listas(primer_lista, segunda_lista))
+
+    resultado = comparador_listas(primer_lista, segunda_lista)
+    print(resultado)
             
 if __name__ == "__main__":
     prueba()
