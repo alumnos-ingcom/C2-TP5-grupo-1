@@ -3,7 +3,7 @@
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
 
-def ingreso_float(numero):
+def convertidor_float(numero):
     """Funcion para convertir a float y o lanzar una excepcion"""
 
     try:
@@ -15,9 +15,6 @@ def ingreso_float(numero):
 def distancia_numerica(n1, n2):
     """Funcion calcular distancia entre dos numeros"""
     
-    n1 = ingreso_float(n1)
-    n2 = ingreso_float(n2)
-
     if n1 < 0:
         n1 = n1 * -1
     
@@ -26,14 +23,15 @@ def distancia_numerica(n1, n2):
     
     return n1 + n2
 
-
-
 def prueba():
     """Toda la interacción con el usuario va acá"""
 
     numero_1 = input('Ingrese el primer numero: ')
     numero_2 = input('Ingrese el segundo numero: ')
     
+    numero_1 = convertidor_float(numero_1)
+    numero_2 = convertidor_float(numero_2)
+
     distancia = distancia_numerica(numero_1, numero_2)
     
     print(distancia)
